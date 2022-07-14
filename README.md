@@ -1,6 +1,6 @@
 # selfie_scraper
 
-Attempting to scrape images from r/selfies in order to generate a male/female classification and age prediction dataset.
+Attempting to scrape images from Reddit (r/selfies) in order to generate a male/female classification and age prediction dataset.
 
 Will try to determine ground truth (male/female and age) based on post title.
 

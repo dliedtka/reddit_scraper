@@ -18,8 +18,7 @@ Will try to determine ground truth (male/female and age) based on post title.
 
 ## To Do
 
-- Implement stats
-- Change main function to take command input
+- Check for deleted images
 - Fully document, comment, specify method types/returns, etc.
 
 

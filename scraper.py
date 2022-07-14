@@ -3,7 +3,6 @@
 import os
 import pickle
 import re
-from turtle import pos
 from psaw import PushshiftAPI
 from datetime import datetime
 import urllib.request
@@ -12,7 +11,8 @@ from PIL import Image
 
 
 class Scraper:
-
+    '''
+    '''
     def __init__(self, new=False):
         '''
         @param new Set True to start a new Scraper (will delete all collected images in Dataset).
@@ -36,6 +36,8 @@ class Scraper:
 
 
     def __image_count(self):
+        '''
+        '''
         counter = 0
         for fname in os.listdir(f"{self.dir_path}/images"):
             if "tmp.jpg" not in fname:
@@ -44,6 +46,8 @@ class Scraper:
 
 
     def stats(self):
+        '''
+        '''
         pass 
 
 
@@ -76,6 +80,7 @@ class Scraper:
         @param notify Set to get notified whenever you scrape that many images, or 0 for no notification.
         @param before If set, collect images older than that date time.
         '''
+        # api call
         api = PushshiftAPI()
         posts = api.search_submissions(
             before=before,
@@ -85,17 +90,16 @@ class Scraper:
 
         session_counter = 0
         total_counter = self.__image_count()
+        # loop over posts indefinitely
         for post in posts:
             post_url = post.url
             post_title = post.title
             post_date = datetime.fromtimestamp(post.created_utc)
             if post_url[-4:] == ".jpg":
-                #before = post_date
                 # newest/oldest checks
-                # may need to recreate api with before set
                 if self.newest is not None and (post_date <= self.newest and post_date >= self.oldest):
                     # recursive call specifying before
-                    # need to test
+                    # allows us to skip over already collected images between newest and oldest
                     self.scrape(before=self.oldest, limit=(limit-session_counter), notify=notify)
                     break
                 
@@ -137,17 +141,25 @@ class Scraper:
                     with open(f"{self.dir_path}/data.pkl", "wb") as fout:
                         pickle.dump((self.dir_path, self.newest, self.oldest), fout)
                 
+                # save to permanent file name
                 my_image.save(f"images/{fname}.jpg")
                 session_counter += 1
 
+                # notify
                 if notify > 0 and (total_counter + session_counter) % notify == 0:
                     print (f"Counter: {total_counter + session_counter}, Date: {post_date}, URL: {post_url}")
 
+                # break out of loop
                 if session_counter >= limit:
                     break
 
 
+
 if __name__ == "__main__":
+    '''
+    '''
+    # convert main function to command input
+
     my_scraper = Scraper(new=True)
     my_scraper.scrape(limit=10, notify=5)
 

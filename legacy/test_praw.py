@@ -8,6 +8,7 @@ import re
 import urllib.request
 from PIL import Image
 
+
 def make_square(im, min_size=100, fill_color=(0, 0, 0, 0)):
     x, y = im.size
     size = max(min_size, x, y)
@@ -55,13 +56,12 @@ for post in new_posts:
 
     post_title = post.title
     post_url = post.url
-    print (post_title)
+    #print (post_title)
     #print (post_url)
 
     # try to get age and gender, if you can't get it put in test set
     age_gender = determine_age_gender(post_title)
     # informs filename
-
     fname = f"images/{counter:06}_{age_gender}"
 
     '''

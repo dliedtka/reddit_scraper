@@ -1,15 +1,36 @@
 # reddit_scraper
 
-Attempting to scrape images from r/selfies in order to generate a male/female classification dataset.
+Attempting to scrape images from r/selfies in order to generate a male/female classification and age prediction dataset.
 
-Secondary goal: Try to determine male/female and age based on title.
+Will try to determine ground truth (male/female and age) based on post title.
 
-r/Rateme could also be useful.
 
-Reference: https://towardsdatascience.com/scraping-reddit-data-1c0af3040768 
+## Eventual Workflow
 
-You'll need an app_auth.txt with your app's client_id, secret, and user_agent on three separate lines.
+1. Scrape images for dataset.
+2. Crop images to just faces.
+    - Try to implement on own with CNN object localization. This will require making images squares and then resizing to the same resolution.
+    - Could look for existing face localization implementations.
+3. Implement gender classifier and age prediction CNNs.
+    - Will need to again square and resize face images to same resolution.
+    - Will age prediction work better with classification age buckets or as a regression problem?
+
+
+## To Do
+
+- Implement stats
+- Change main function to take command input
+- Fully document, comment, specify method types/returns, etc.
+
+
+## References
+
+- https://towardsdatascience.com/scraping-reddit-data-1c0af3040768 
+- https://www.reddit.com/r/pushshift/comments/vwk47r/how_can_i_download_all_images_from_a_subreddit/
+
+
+## Installs
 
 ```
-pip3 install praw
+pip3 install psaw
 ```

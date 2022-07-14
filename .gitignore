@@ -1,5 +1,7 @@
 app_auth.txt
 images/
+private_notes.txt
+data.pkl
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

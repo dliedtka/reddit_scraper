@@ -104,6 +104,10 @@ class Scraper:
         # total images
         stat_str += f"Total images: {self.image_count()}\n\n"
 
+        # newest/oldest
+        stat_str += f"Newest image: {self.newest}\n"
+        stat_str += f"Oldest image: {self.oldest}\n\n"
+
         # gender breakdown
         stat_str += f"Male / female counts: \t"
         stat_str += f"{len(self.male_ages)} ({(len(self.male_ages) / self.image_count() * 100.):.2f}%) / "

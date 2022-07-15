@@ -21,7 +21,7 @@ It should hopefully be self explanatory from there.
 
 ## Future
 
-[r/selfie](https://www.reddit.com/r/selfie/) appears way more active, but it seems age and gender are less commonly in post titles. May rework code to grab images from there as well. Even if age and gender aren't in post title, store images just so I have more images to train face localization (which will occur before age/gender prediction). Can also more thoroughly try to parse age and gender.
+[r/selfie](https://www.reddit.com/r/selfie/) appears way more active, but it seems age and gender are less commonly in post titles. May rework code to grab images from there as well. Even if age and gender aren't in post title, store images just so I have more images to train face localization (see my [head_hunter repo](https://github.com/dliedtka/head_hunter)), which will occur before age/gender prediction. Can also more thoroughly try to parse age and gender.
 
 
 ## References

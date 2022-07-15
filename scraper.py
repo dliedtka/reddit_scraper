@@ -233,7 +233,7 @@ class Scraper:
 
                 # notify
                 if notify > 0 and (total_counter + session_counter) % notify == 0:
-                    print (f"Images in dataset: {total_counter + session_counter}, Date: {post_date}, URL: {post_url}")
+                    print (f"{datetime.now()}, Images in dataset: {total_counter + session_counter}, Date: {post_date}, URL: {post_url}")
 
                 # break out of loop
                 if session_counter >= limit:
@@ -294,13 +294,3 @@ if __name__ == "__main__":
             else:
                 notify = int(notify)
             my_scraper.scrape(limit=limit, notify=notify)
-
-    '''
-    my_scraper = Scraper(new=True)
-    my_scraper.scrape(limit=10, notify=5)
-
-    my_scraper2 = Scraper()
-    my_scraper2.scrape(limit=10, notify=5)
-
-    print (my_scraper2.stats())
-    '''

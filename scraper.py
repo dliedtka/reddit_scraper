@@ -280,7 +280,7 @@ if __name__ == "__main__":
             limit = input("Set a limit, or 0 to scrape continuously (not recommended, might get stuck, default 1000) > ")
             if limit == "":
                 limit = 1000
-            elif not limit.isdigit() or limit < 0:
+            elif not limit.isdigit() or int(limit) < 0:
                 print ("Invalid limit.")
                 continue
             else:
@@ -288,7 +288,7 @@ if __name__ == "__main__":
             notify = input("The terminal will notify you every X images (or 0 for no notification, default 100). X? > ")
             if notify == "":
                 notify = 100
-            elif not notify.isdigit() or notify < 0:
+            elif not notify.isdigit() or int(notify) < 0:
                 print ("Invalid notify value.")
                 continue
             else:

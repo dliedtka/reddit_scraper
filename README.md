@@ -1,6 +1,6 @@
 # selfie_scraper
 
-Scrape images from Reddit ([r/selfies](https://www.reddit.com/r/selfies/)) in order to generate a male/female classification and age prediction dataset.
+Scrape images from Reddit ([r/selfies](https://www.reddit.com/r/selfies/)) using the Pushshift API in order to generate a male/female classification and age prediction dataset.
 
 Will try to determine ground truth (male/female and age) based on post title. For now, skips posts without age and gender apparent in title.
 

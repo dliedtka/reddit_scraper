@@ -45,6 +45,10 @@ class Scraper:
         @param new Set True to start a new Scraper (will delete all collected images in Dataset).
         '''
         dir_path = os.path.dirname(os.path.abspath(__file__))
+
+        if not os.path.exists(f"{dir_path}/images"):
+            os.mkdir(f"{dir_path}/images")
+
         existing_data = os.path.exists(f"{dir_path}/data.pkl")
         start_new = new or (not existing_data)
         
@@ -204,7 +208,7 @@ class Scraper:
                     my_image.save(f"images/{fname}.jpg")
                 except:
                     continue
-                # check for deleted image
+                # check for deleted image, looks like this is handled by API/subreddit
 
                 # newest/oldest updates
                 if self.newest is not None:

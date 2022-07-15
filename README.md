@@ -1,25 +1,27 @@
 # selfie_scraper
 
-Attempting to scrape images from Reddit (r/selfies) in order to generate a male/female classification and age prediction dataset.
+Scrape images from Reddit ([r/selfies](https://www.reddit.com/r/selfies/)) in order to generate a male/female classification and age prediction dataset.
 
-Will try to determine ground truth (male/female and age) based on post title.
+Will try to determine ground truth (male/female and age) based on post title. For now, skips posts without age and gender apparent in title.
 
 
-## Eventual Workflow
+## Usage
 
-1. Scrape images for dataset.
-2. Crop images to just faces.
-    - Try to implement on own with CNN object localization. This will require making images squares and then resizing to the same resolution.
-    - Could look for existing face localization implementations.
-3. Implement gender classifier and age prediction CNNs.
-    - Will need to again square and resize face images to same resolution.
-    - Will age prediction work better with classification age buckets or as a regression problem?
+```
+python3 scraper.py
+```
+
+It should hopefully be self explanatory from there.
 
 
 ## To Do
 
-- Check for deleted images
-- Fully document, comment, specify method types/returns, etc.
+- Fully document, comment, specify method types/returns, etc... probably not going to do it, sorry.
+
+
+## Future
+
+[r/selfie](https://www.reddit.com/r/selfie/) appears way more active, but it seems age and gender are less commonly in post titles. May rework code to grab images from there as well. Even if age and gender aren't in post title, store images just so I have more images to train face localization (which will occur before age/gender prediction). Can also more thoroughly try to parse age and gender.
 
 
 ## References

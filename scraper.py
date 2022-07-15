@@ -191,7 +191,10 @@ class Scraper:
                     break
                 
                 # try to get age and gender, for now skip if you can't
-                age, gender = self.__determine_age_gender(post_title)
+                try:
+                    age, gender = self.__determine_age_gender(post_title)
+                except: 
+                    continue
                 if age is None or gender is None or age < 18:
                     continue
                 else:
